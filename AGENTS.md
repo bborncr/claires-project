@@ -22,6 +22,9 @@ not show code unless they ask for it.
 | Speaker amplifier (MAX98357A) BCLK / LRC / DIN | `board.IO4` / `board.IO5` / `board.IO6` |
 | Small status LED on the board | `board.NEOPIXEL` (red = calibrating, green = ready) |
 
+- This board has no `board.I2C()` or `board.SPI()`. A new part on those buses
+  needs `busio` with pins chosen by the person who wires it, so ask; do not guess.
+
 ## Rules
 
 1. **Change the settings at the top of `code.py` first.** Most requests
