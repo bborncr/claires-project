@@ -31,6 +31,10 @@ once it is ready. Keep your hands off the wire while it is red.
 
 ## Putting it on the board
 
+The quickest way: `uv run tools/board.py upload`. It checks `code.py`, copies it
+to the board, restarts it and shows the output, ending in `RESULT: OK` or
+`RESULT: ERROR`. `uv run tools/board.py console` shows the output again.
+
 The board shows up as a `CIRCUITPY` drive. Copy `code.py` onto the drive and the
 board restarts with it. No extra libraries are needed, because `neopixel` is
 built into this board's firmware.
@@ -40,3 +44,11 @@ and pass the port (it only finds IdeaBoard CH340 ports by itself):
 
     uv run tools/ibserial.py --port /dev/ttyACM0 info
     uv run tools/ibserial.py --port /dev/ttyACM0 put code.py /code.py
+
+## Asking an AI agent for changes
+
+The repo is set up for [opencode](https://opencode.ai) (and other agents that
+read `AGENTS.md`). Open opencode in this folder and describe the change in
+plain words, for example "make the heartbeat blue and a bit slower". `AGENTS.md`
+holds the ground rules, and `.opencode/skills/` holds one guide each for the
+light, the sound, the touch sensor, the strips and uploading.
